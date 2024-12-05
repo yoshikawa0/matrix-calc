@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Python Setup Test
 
 on:
   push:
@@ -13,5 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Simple Test
-        run: echo "Hello, GitHub Actions is working!"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9  # Використовуємо одну стабільну версію Python
+
+      - name: Verify Python Version
+        run: python --version
